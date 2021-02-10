@@ -8,7 +8,8 @@ var gFont = 'Impact'
 var gFontSize = 40
 var gPos = { posX: 300, posY: 150 }
 var gCurrMeme = getMeme()
-
+var gSelectedLine = gMeme.selectedLineIdx
+console.log('line', gSelectedLine);
 
 function init() {
     gElCanvas = document.getElementById('my-canvas')
@@ -17,7 +18,6 @@ function init() {
     elGallery.classList.remove('hidden')
     var elMemes = document.querySelector('.canvas-container')
     elMemes.classList.add('hidden')
-        // resizeCanvas()
     drawImgFromlocal()
     renderCanvas()
     renderGallery()
@@ -62,9 +62,9 @@ function getCurrImg() {
 }
 
 
-function onEditMemeText(inputText, idx) {
+function onEditMemeText(inputText, gSelectedLine) {
     const txt = inputText.value;
-    updateMemeTxt(idx, txt);
+    updateMemeTxt(gSelectedLine, txt);
     drawImgFromlocal();
 }
 
@@ -76,11 +76,10 @@ function drawImgFromlocal() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         const txt = getImgTxt();
-        // console.log(gMeme);
-        // console.log('x', gMeme.lines[1].coords[0].posX);
-        console.log('y', gMeme.lines[0].coords[0].posY);
 
-        addMemeText(txt, gMeme.lines[0].coords[0].posX, gMeme.lines[0].coords[0].posY)
+        console.log('y', gMeme.lines[gSelectedLine].coords[0].posY);
+
+        addMemeText(txt, gMeme.lines[gSelectedLine].coords[0].posX, gMeme.lines[gSelectedLine].coords[0].posY)
 
 
     }
@@ -91,10 +90,19 @@ function renderCanvas() {
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
+function changeLine() {
+    gSelectedLine += 1
+    if (gSelectedLine > 1) {
+        gSelectedLine = 0
+        console.log('gSelectedLine', gSelectedLine);
+    }
+    drawImgFromlocal()
+}
 
 
 function changeFont(font) {
     gFont = font
+    console.log(gFont);
 }
 
 function biggerFont() {
@@ -107,39 +115,39 @@ function lowerFont() {
 
 function moveLineDown() {
     console.log(gMeme.lines[0].coords[0].posY);
-    gMeme.lines[0].coords[0].posY += 10
+    gMeme.lines[gSelectedLine].coords[0].posY += 10
     drawImgFromlocal()
 }
 
 function moveLineUp() {
     console.log(gMeme.lines[0].coords[0].posY);
-    gMeme.lines[0].coords[0].posY -= 10
+    gMeme.lines[gSelectedLine].coords[0].posY -= 10
     drawImgFromlocal()
 }
 
 function moveLineRight() {
     console.log(gMeme.lines[0].coords[0].posX);
-    gMeme.lines[0].coords[0].posX -= 10
+    gMeme.lines[gSelectedLine].coords[0].posX -= 10
     drawImgFromlocal()
 }
 
 function moveLineLeft() {
     console.log(gMeme.lines[0].coords[0].posY);
-    gMeme.lines[0].coords[0].posX += 10
+    gMeme.lines[gSelectedLine].coords[0].posX += 10
     drawImgFromlocal()
 }
 
 
 function alignLeft() {
-    gMeme.lines[0].coords[0].posX = 50
+    gMeme.lines[gSelectedLine].coords[0].posX = 50
 }
 
 function alignCenter() {
-    gMeme.lines[0].coords[0].posX = 300
+    gMeme.lines[gSelectedLine].coords[0].posX = 300
 }
 
 function alignRight() {
-    gMeme.lines[0].coords[0].posX = 450
+    gMeme.lines[gSelectedLine].coords[0].posX = 450
 }
 
 function addMemeText(text, ) {
@@ -148,8 +156,8 @@ function addMemeText(text, ) {
     gCtx.fillStyle = gColor
     gCtx.font = gFontSize + 'px ' + gFont
     gCtx.textAlign = 'center'
-    gCtx.fillText(text, gMeme.lines[0].coords[0].posX, gMeme.lines[0].coords[0].posY)
-    gCtx.strokeText(text, gMeme.lines[0].coords[0].posX, gMeme.lines[0].coords[0].posY)
+    gCtx.fillText(text, gMeme.lines[gSelectedLine].coords[0].posX, gMeme.lines[gSelectedLine].coords[0].posY)
+    gCtx.strokeText(text, gMeme.lines[gSelectedLine].coords[0].posX, gMeme.lines[gSelectedLine].coords[0].posY)
 }
 
 

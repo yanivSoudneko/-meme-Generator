@@ -51,6 +51,7 @@ var gMeme = {
 };
 
 
+
 function getMeme() {
     return gMeme
 }
@@ -67,7 +68,6 @@ function getOutLineColor() {
 
 function getImgSrc() {
     const idx = getImgIdxById();
-    console.log(idx);
     return gImgs[idx].url;
 }
 
