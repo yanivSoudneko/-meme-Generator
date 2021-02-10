@@ -70,8 +70,8 @@ function getImgSrc() {
 function getImgTxt() {
     const idx = getImgIdxById();
     return gMeme.lines[0].txt;
-    d
-    //Todo: add line ix
+
+
 }
 
 function updateMemeTxt(lnIdx, txt) {
