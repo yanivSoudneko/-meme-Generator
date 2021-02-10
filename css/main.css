@@ -56,27 +56,6 @@ button {
     cursor: pointer;
 }
 
-img {
-    width: 60%;
-}
-
-.post-navigation {
-    display: flex;
-    border-top: 1px solid grey;
-    height: 70px;
-}
-
-.post-navigation a {
-    text-transform: uppercase;
-    color: grey;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    font-family: lato-bold;
-    padding: 10px;
-}
-
 a {
     text-decoration: none;
     color: white;
@@ -92,6 +71,23 @@ logo {
 .main-container {
     max-width: 1060px;
     margin: 0 auto;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.alt-header {
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(206, 177, 177);
+    padding-top: 30px;
+}
+
+.tag-title {
+    text-align: center;
+    background-color: rgb(206, 177, 177);
 }
 
 
@@ -176,32 +172,31 @@ logo {
 /* GRID MAIN CARDS */
 
 .grid-container {
-    /* max-width: 1060px; */
-    padding-top: 100px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
-    grid-auto-rows: 1fr;
-    grid-auto-flow: dense;
-    grid-gap: 5px;
-    margin: 0 auto;
-    padding-left: 3.75rem;
-    padding-right: 3.75rem;
-}
-
-.item-1 {
-    display: flex;
-    border: 2px solid black;
-    background-color: purple;
-    text-align: center;
-    justify-content: center;
-    line-height: 100px;
-}
-
-article {
-    margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
 }
 
 img {
-    width: 355px;
-    height: 350px;
+    width: 100%;
+    max-width: 350px;
+    object-fit: cover;
+}
+
+
+/* MEME GENERATOR */
+
+.canvas-container {
+    display: flex;
+    padding: 50px;
+    background-color: rgb(243, 233, 233);
+    margin: 0 auto;
+}
+
+.canvas-controller {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 400px;
 }

@@ -9,41 +9,68 @@
     <title>Meme Generator</title>
 </head>
 
-<body>
-
+<body onload="init()">
     <header class="main-header flex space-between align-center">
         <div class="main-container flex space-between  align-center list-width">
             <div class="logo">Meme<span class="logo-span">.</span></div>
             <ul class="main-nav clean-list flex">
                 <li><a href="#" class=" header-a flex align-center justify-content">Gallery</a></li>
-                <li><a href="#" class=" header-a flex align-center justify-content">Memes</a></li>
+                <li><a href="#memes" class=" header-a flex align-center justify-content">Memes</a></li>
                 <li><a href="#" class=" header-a flex align-center justify-content">About</a></li>
             </ul>
         </div>
     </header>
+    <div class="alt-header">
+
+        <input type="text" placeholder="Enter search keyword">
+        <div class="tag-title">
+            <span>funny</span>
+            <span>kids</span>
+            <span>anim</span>
+            <span>america</span>
+            <span>movies</span>
+        </div>
+    </div>
 
 
-    <section class="grid-container">
-        <article class="img-1 img"><img src="./meme-imgs (square)/1.jpg" alt=""></article>
-        <article class="img-2 img"><img src="./meme-imgs (square)/2.jpg" alt=""></article>
-        <article class="img-3 img"><img src="./meme-imgs (square)/3.jpg" alt=""></article>
-        <article class="img-4 img"><img src="./meme-imgs (square)/4.jpg" alt=""></article>
-        <article class="img-5 img"><img src="./meme-imgs (square)/5.jpg" alt=""></article>
-        <article class="img-6 img"><img src="./meme-imgs (square)/6.jpg" alt=""></article>
-        <article class="img-7 img"><img src="./meme-imgs (square)/7.jpg" alt=""></article>
-        <article class="img-8 img"><img src="./meme-imgs (square)/8.jpg" alt=""></article>
-        <article class="img-9 img"><img src="./meme-imgs (square)/9.jpg" alt=""></article>
-        <article class="img-10 img"><img src="./meme-imgs (square)/10.jpg" alt=""></article>
-        <article class="img-11 img"><img src="./meme-imgs (square)/11.jpg" alt=""></article>
-        <article class="img-12 img"><img src="./meme-imgs (square)/12.jpg" alt=""></article>
-        <article class="img-12 img"><img src="./meme-imgs (square)/13.jpg" alt=""></article>
-        <article class="img-12 img"><img src="./meme-imgs (square)/14.jpg" alt=""></article>
-        <article class="img-12 img"><img src="./meme-imgs (square)/15.jpg" alt=""></article>
-        <article class="img-12 img"><img src="./meme-imgs (square)/16.jpg" alt=""></article>
-        <article class="img-12 img"><img src="./meme-imgs (square)/17.jpg" alt=""></article>
-        <article class="img-12 img"><img src="./meme-imgs (square)/18.jpg" alt=""></article>
+    <section class="canvas-container flex ">
+        <canvas id="my-canvas" name="meme-controls" width="600" height="800" style="outline:1px solid green"></canvas>
+
+        <div class="canvas-controller">
+            <h2>Make your Canvas</h2>
+            <input type="text" name="meme-lns" oninput="onEditMemeText(this)">
+            <input type="text" name="meme-lns" oninput="onEditMemeTextDown(this)">
+            <button>lines</button>
+            <button>add line</button>
+            <button onclick="clearCanvas()">delete line</button>
+
+            <div class="edit-font">
+                <button>A+</button>
+                <button>A-</button>
+                <button>align left</button>
+                <button>align center</button>
+                <button>align right</button>
+                <h3>select font</h3>
+                <button>underline</button>
+                <input type="color" id="color" onchange="getColor()">
+                <input type="color" id="outLine" onchange="getOutLineColor()">
+            </div>
+            <!-- <div>bonus steackers</div> -->
+            <div>
+                <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+
+            </div>
+        </div>
     </section>
-    <script src="js/main.js"></script>
+    <main class="main-content main-container">
+
+        <section class="grid-container" id="memes"></section>
+
+    </main>
+    <!-- <script src="js/main.js"></script> -->
+    <script src="js/meme-service.js"></script>
+    <script src="js/main-contoller.js"></script>
+
 </body>
 
 </html>
