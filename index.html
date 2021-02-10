@@ -40,8 +40,10 @@
             <h2>Make your Canvas</h2>
             <input type="text" name="meme-line-1" oninput="onEditMemeText(this,0)">
             <!-- <input type="text" name="meme-line-2" oninput="onEditMemeText(this,1)"> -->
-            <button class="ctrl-btn" onclick="onMoveCurrLn(-5)">up</button>
-            <button class="ctrl-btn" onclick="onMoveCurrLn(5)">down</button>
+            <button class="ctrl-btn" onclick="moveLine(this,'up')">up</button>
+            <button class="ctrl-btn" onclick="moveLine(this,'down')">down</button>
+            <button class="ctrl-btn" onclick="moveLine(this,'left')">left</button>
+            <button class="ctrl-btn" onclick="moveLine(this,'right')">right</button>
 
             <button>lines</button>
             <button>add line</button>

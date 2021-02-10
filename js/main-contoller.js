@@ -86,6 +86,8 @@ function renderCanvas() {
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
+
+
 function changeFont(font) {
     gFont = font
 }
@@ -121,7 +123,7 @@ function addMemeText(text, ) {
 }
 
 
-//For when I want to add download
+
 function downloadCanvas(elLink) {
     const data = gElCanvas.toDataURL()
     elLink.href = data

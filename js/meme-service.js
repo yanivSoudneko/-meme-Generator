@@ -28,12 +28,24 @@ var gMeme = {
             size: '20',
             align: 'center',
             color: 'blue',
+            coords: [{
+                line: '',
+                order: 0,
+                posX: 80,
+                posY: 60
+            }]
         },
         {
             txt: '',
             size: '30',
             align: 'left',
             color: 'blue',
+            coords: [{
+                line: '',
+                order: 0,
+                posX: 100,
+                posY: 80
+            }]
         },
     ],
 };
@@ -65,6 +77,7 @@ function getImgTxt() {
 function updateMemeTxt(lnIdx, txt) {
     gMeme.lines[lnIdx].txt = txt;
 }
+
 
 
 function getImgIdxById() {
