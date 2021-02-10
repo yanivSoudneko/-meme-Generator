@@ -38,19 +38,25 @@
 
         <div class="canvas-controller">
             <h2>Make your Canvas</h2>
-            <input type="text" name="meme-lns" oninput="onEditMemeText(this)">
-            <input type="text" name="meme-lns" oninput="onEditMemeTextDown(this)">
+            <input type="text" name="meme-line-1" oninput="onEditMemeText(this,0)">
+            <!-- <input type="text" name="meme-line-2" oninput="onEditMemeText(this,1)"> -->
+            <button class="ctrl-btn" onclick="onMoveCurrLn(-5)">up</button>
+            <button class="ctrl-btn" onclick="onMoveCurrLn(5)">down</button>
+
             <button>lines</button>
             <button>add line</button>
             <button onclick="clearCanvas()">delete line</button>
 
             <div class="edit-font">
-                <button>A+</button>
-                <button>A-</button>
-                <button>align left</button>
-                <button>align center</button>
-                <button>align right</button>
-                <h3>select font</h3>
+                <button onclick="biggerFont()">A+</button>
+                <button onclick="lowerFont()">A-</button>
+                <button onclick="alignLeft()">align left</button>
+                <button onclick="alignCenter()">align center</button>
+                <button onclick="alignRight()">align right</button>
+                <select onchange="changeFont(this.value)" name="font" id="font">
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
+                </select>
                 <button>underline</button>
                 <input type="color" id="color" onchange="getColor()">
                 <input type="color" id="outLine" onchange="getOutLineColor()">

@@ -24,11 +24,18 @@ var gMeme = {
     selectedImgId: 3,
     selectedLineIdx: 0,
     lines: [{
-        txt: '',
-        size: '20',
-        align: 'left',
-        color: 'blue',
-    }, ],
+            txt: '',
+            size: '20',
+            align: 'center',
+            color: 'blue',
+        },
+        {
+            txt: '',
+            size: '30',
+            align: 'left',
+            color: 'blue',
+        },
+    ],
 };
 
 

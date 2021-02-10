@@ -4,6 +4,9 @@ var gCtx;
 var gCurrImg;
 var gColor;
 var gLineColor;
+var gFont = 'Impact'
+var gFontSize = 40
+var gPos = { posX: 300, posY: 50 }
 
 
 function init() {
@@ -58,17 +61,13 @@ function getCurrImg() {
 }
 
 
-function onEditMemeText(elTextInput) {
-    const txt = elTextInput.value;
-    updateMemeTxt(0, txt);
+function onEditMemeText(inputText, idx) {
+    const txt = inputText.value;
+    updateMemeTxt(idx, txt);
     drawImgFromlocal();
 }
 
-function onEditMemeTextDown(elTextInput) {
-    const txt = elTextInput.value;
-    updateMemeTxt(0, txt);
-    drawImgFromlocal();
-}
+
 
 function drawImgFromlocal() {
     const img = new Image()
@@ -76,8 +75,8 @@ function drawImgFromlocal() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         const txt = getImgTxt();
-        addMemeText(txt, 300, 50)
-        addMemeText(txt, 300, 700)
+        addMemeText(txt, gPos.posX, gPos.posY)
+            // addMemeText(txt, 300, 700)
 
     }
 }
@@ -87,19 +86,38 @@ function renderCanvas() {
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-
-function getBiggerFont() {
-    gCtx.font++
+function changeFont(font) {
+    gFont = font
 }
 
-function addMemeText(text, x, y) {
+function biggerFont() {
+    gFontSize += 5
+}
+
+function lowerFont() {
+    gFontSize -= 5
+}
+
+function alignLeft() {
+    gPos.posX = 50
+}
+
+function alignCenter() {
+    gPos.posX = 300
+}
+
+function alignRight() {
+    gPos.posX = 450
+}
+
+function addMemeText(text, ) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = gLineColor
     gCtx.fillStyle = gColor
-    gCtx.font = '40px impact'
+    gCtx.font = gFontSize + 'px ' + gFont
     gCtx.textAlign = 'center'
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    gCtx.fillText(text, gPos.posX, gPos.posY)
+    gCtx.strokeText(text, gPos.posX, gPos.posY)
 }
 
 
