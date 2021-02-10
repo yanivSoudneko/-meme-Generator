@@ -6,7 +6,8 @@ var gColor;
 var gLineColor;
 var gFont = 'Impact'
 var gFontSize = 40
-var gPos = { posX: 300, posY: 50 }
+var gPos = { posX: 300, posY: 150 }
+var gCurrMeme = getMeme()
 
 
 function init() {
@@ -75,8 +76,12 @@ function drawImgFromlocal() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         const txt = getImgTxt();
-        addMemeText(txt, gPos.posX, gPos.posY)
-            // addMemeText(txt, 300, 700)
+        // console.log(gMeme);
+        // console.log('x', gMeme.lines[1].coords[0].posX);
+        console.log('y', gMeme.lines[0].coords[0].posY);
+
+        addMemeText(txt, gMeme.lines[0].coords[0].posX, gMeme.lines[0].coords[0].posY)
+
 
     }
 }
@@ -100,16 +105,41 @@ function lowerFont() {
     gFontSize -= 5
 }
 
+function moveLineDown() {
+    console.log(gMeme.lines[0].coords[0].posY);
+    gMeme.lines[0].coords[0].posY += 10
+    drawImgFromlocal()
+}
+
+function moveLineUp() {
+    console.log(gMeme.lines[0].coords[0].posY);
+    gMeme.lines[0].coords[0].posY -= 10
+    drawImgFromlocal()
+}
+
+function moveLineRight() {
+    console.log(gMeme.lines[0].coords[0].posX);
+    gMeme.lines[0].coords[0].posX -= 10
+    drawImgFromlocal()
+}
+
+function moveLineLeft() {
+    console.log(gMeme.lines[0].coords[0].posY);
+    gMeme.lines[0].coords[0].posX += 10
+    drawImgFromlocal()
+}
+
+
 function alignLeft() {
-    gPos.posX = 50
+    gMeme.lines[0].coords[0].posX = 50
 }
 
 function alignCenter() {
-    gPos.posX = 300
+    gMeme.lines[0].coords[0].posX = 300
 }
 
 function alignRight() {
-    gPos.posX = 450
+    gMeme.lines[0].coords[0].posX = 450
 }
 
 function addMemeText(text, ) {
@@ -118,8 +148,8 @@ function addMemeText(text, ) {
     gCtx.fillStyle = gColor
     gCtx.font = gFontSize + 'px ' + gFont
     gCtx.textAlign = 'center'
-    gCtx.fillText(text, gPos.posX, gPos.posY)
-    gCtx.strokeText(text, gPos.posX, gPos.posY)
+    gCtx.fillText(text, gMeme.lines[0].coords[0].posX, gMeme.lines[0].coords[0].posY)
+    gCtx.strokeText(text, gMeme.lines[0].coords[0].posX, gMeme.lines[0].coords[0].posY)
 }
 
 

@@ -31,8 +31,8 @@ var gMeme = {
             coords: [{
                 line: '',
                 order: 0,
-                posX: 80,
-                posY: 60
+                posX: 300,
+                posY: 50
             }]
         },
         {
@@ -43,13 +43,17 @@ var gMeme = {
             coords: [{
                 line: '',
                 order: 0,
-                posX: 100,
-                posY: 80
+                posX: 300,
+                posY: 700
             }]
         },
     ],
 };
 
+
+function getMeme() {
+    return gMeme
+}
 
 function getColor() {
     var elColor = document.getElementById('color').value
