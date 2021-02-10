@@ -200,3 +200,7 @@ img {
     align-items: center;
     padding-left: 400px;
 }
+
+.hidden {
+    display: none
+}

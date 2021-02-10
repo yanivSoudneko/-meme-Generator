@@ -21,8 +21,8 @@ var gImgs = [
     { id: 18, url: '../img/18.jpg' },
 ];
 var gMeme = {
-    selectedImgId: 12,
-    selectedLineIdx: 2,
+    selectedImgId: 3,
+    selectedLineIdx: 0,
     lines: [{
         txt: '',
         size: '20',
@@ -51,8 +51,8 @@ function getImgSrc() {
 function getImgTxt() {
     const idx = getImgIdxById();
     return gMeme.lines[0].txt;
-
-    //Todo: add line idx
+    d
+    //Todo: add line ix
 }
 
 function updateMemeTxt(lnIdx, txt) {

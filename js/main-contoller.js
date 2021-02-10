@@ -9,6 +9,10 @@ var gLineColor;
 function init() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    var elGallery = document.querySelector('.grid-container')
+    elGallery.classList.remove('hidden')
+    var elMemes = document.querySelector('.canvas-container')
+    elMemes.classList.add('hidden')
         // resizeCanvas()
     drawImgFromlocal()
     renderCanvas()
@@ -42,6 +46,10 @@ function onEditor(id) {
     console.log(currImg.id);
     gMeme.selectedImgId = currImg.id
     drawImgFromlocal()
+    var elMemes = document.querySelector('.canvas-container')
+    elMemes.classList.remove('hidden')
+    var elGallery = document.querySelector('.grid-container')
+    elGallery.classList.add('hidden')
 }
 
 
@@ -79,8 +87,9 @@ function renderCanvas() {
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-function clearCanvas() {
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+
+function getBiggerFont() {
+    gCtx.font++
 }
 
 function addMemeText(text, x, y) {

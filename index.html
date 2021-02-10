@@ -14,7 +14,7 @@
         <div class="main-container flex space-between  align-center list-width">
             <div class="logo">Meme<span class="logo-span">.</span></div>
             <ul class="main-nav clean-list flex">
-                <li><a href="#" class=" header-a flex align-center justify-content">Gallery</a></li>
+                <li><a href="#gallery" class=" header-a flex align-center justify-content" onclick="init()">Gallery</a></li>
                 <li><a href="#memes" class=" header-a flex align-center justify-content">Memes</a></li>
                 <li><a href="#" class=" header-a flex align-center justify-content">About</a></li>
             </ul>
@@ -33,7 +33,7 @@
     </div>
 
 
-    <section class="canvas-container flex ">
+    <section class="canvas-container flex hidden " id="gallery">
         <canvas id="my-canvas" name="meme-controls" width="600" height="800" style="outline:1px solid green"></canvas>
 
         <div class="canvas-controller">
