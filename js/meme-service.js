@@ -31,20 +31,20 @@ var gMeme = {
             coords: [{
                 line: '',
                 order: 0,
-                posX: 300,
+                posX: 250,
                 posY: 50
             }]
         },
         {
             txt: '',
             size: '30',
-            align: 'left',
+            align: 'center',
             color: 'blue',
             coords: [{
                 line: '',
-                order: 0,
-                posX: 300,
-                posY: 700
+                order: 1,
+                posX: 250,
+                posY: 450
             }]
         },
     ],

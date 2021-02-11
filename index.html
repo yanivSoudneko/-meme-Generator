@@ -35,14 +35,13 @@
 
 
     <section class="canvas-container flex hidden " id="gallery">
-        <canvas id="my-canvas" name="meme-controls" width="600" height="800" style="outline:1px solid green"></canvas>
+        <canvas id="my-canvas" name="meme-controls" width="500" height="500" style="outline:1px solid green"></canvas>
 
         <div class="canvas-controller">
             <h2>Make your Canvas</h2>
             <label for="meme-line-1">Top line</label>
             <input type="text" name="meme-line-1" oninput="onEditMemeText(this,0)">
-            <label for="meme-line-2">Bottom line</label>
-            <input type="text" name="meme-line-2" oninput="onEditMemeText(this,1)">
+
             <button><i class="fas fa-arrow-up" onclick="moveLineUp(this)"></i></button>
             <button><i class="fas fa-arrow-down" onclick="moveLineDown(this)"></i></button>
             <button><i class="fas fa-arrow-right" onclick="moveLineLeft(this)"></i></button>
@@ -50,7 +49,7 @@
 
             <button onclick="changeLine()">Swith line</button>
             <button>add line</button>
-            <button onclick="clearCanvas()">delete line</button>
+            <button onclick="onDeleteLine(this)">delete line</button>
 
             <div class="edit-font">
                 <button onclick="biggerFont()">A+</button>

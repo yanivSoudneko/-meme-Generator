@@ -188,6 +188,7 @@ img {
 
 .canvas-container {
     display: flex;
+    max-width: 1060px;
     padding: 50px;
     background-color: rgb(243, 233, 233);
     margin: 0 auto;
@@ -198,7 +199,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 400px;
+    /* padding-left: 400px; */
 }
 
 .hidden {

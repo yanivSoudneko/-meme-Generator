@@ -6,7 +6,7 @@ var gColor;
 var gLineColor;
 var gFont = 'Impact'
 var gFontSize = 40
-var gPos = { posX: 300, posY: 150 }
+var gPos = { posX: 50, posY: 50 }
 var gCurrMeme = getMeme()
 var gSelectedLine = gMeme.selectedLineIdx
 console.log('line', gSelectedLine);
@@ -47,7 +47,7 @@ function getOutLineColor() {
 
 function onEditor(id) {
     var currImg = getImgById(id)
-    console.log(currImg.id);
+        // console.log(currImg.id);
     gMeme.selectedImgId = currImg.id
     drawImgFromlocal()
     var elMemes = document.querySelector('.canvas-container')
@@ -91,7 +91,8 @@ function renderCanvas() {
 }
 
 function changeLine() {
-    gSelectedLine += 1
+    gSelectedLine++
+    console.log(gSelectedLine);
     if (gSelectedLine > 1) {
         gSelectedLine = 0
         console.log('gSelectedLine', gSelectedLine);
@@ -99,6 +100,12 @@ function changeLine() {
     drawImgFromlocal()
 }
 
+function onDeleteLine(id) {
+    console.log(gMeme.lines[gSelectedLine].txt);
+    console.log(gSelectedLine);
+    gMeme.lines[gSelectedLine].txt = ''
+    drawImgFromlocal()
+}
 
 function changeFont(font) {
     gFont = font
@@ -143,14 +150,14 @@ function alignLeft() {
 }
 
 function alignCenter() {
-    gMeme.lines[gSelectedLine].coords[0].posX = 300
+    gMeme.lines[gSelectedLine].coords[0].posX = 100
 }
 
 function alignRight() {
-    gMeme.lines[gSelectedLine].coords[0].posX = 450
+    gMeme.lines[gSelectedLine].coords[0].posX = 200
 }
 
-function addMemeText(text, ) {
+function addMemeText(text) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = gLineColor
     gCtx.fillStyle = gColor
