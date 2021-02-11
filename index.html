@@ -7,18 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/939f1d3268.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="favIcon/favicon-16x16.png">
     <title>Meme Generator</title>
 </head>
 
 <body onload="init()">
-    <header class="main-header flex space-between align-center">
-        <div class="main-container flex space-between  align-center list-width">
-            <div class="logo">Meme<span class="logo-span">.</span></div>
-            <ul class="main-nav clean-list flex">
+
+    <div class="main-screen" onclick="toggleMenu()"></div>
+
+    <header class="main-header">
+        <div class="main-container header-container flex space-between  align-center list-width">
+            <div class="logo"><a href="#gallery">Meme</a></div>
+            <ul class="main-nav navbar-conntainer clean-list flex">
                 <li><a href="#gallery" class=" header-a flex align-center justify-content" onclick="init()">Gallery</a></li>
                 <li><a href="#memes" class=" header-a flex align-center justify-content">Memes</a></li>
                 <li><a href="#" class=" header-a flex align-center justify-content">About</a></li>
             </ul>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </header>
     <div class="alt-header">
@@ -48,7 +53,7 @@
             <button><i class="fas fa-arrow-left" onclick="moveLineRight(this)"></i></button>
 
             <button onclick="changeLine()">Swith line</button>
-            <button>add line</button>
+            <button>Add line</button>
             <button onclick="onDeleteLine(this)">delete line</button>
 
             <div class="edit-font">
@@ -76,7 +81,7 @@
     </section>
     <main class="main-content main-container">
 
-        <section class="grid-container" id="memes"></section>
+        <section class="grid-container"></section>
 
     </main>
     <!-- <script src="js/main.js"></script> -->

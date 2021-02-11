@@ -52,6 +52,21 @@ var gMeme = {
 
 
 
+
+
+// function removeLine() {
+//     if (gMeme.lines.length === 0) return
+//     gMeme.lines.splice([gMeme.selectedLineIdx], 1)
+//     gMeme.selectedLineIdx = 0
+//     drawImgFromlocal()
+// }
+
+
+function toggleMenu() {
+    document.body.classList.toggle('open')
+}
+
+
 function getMeme() {
     return gMeme
 }

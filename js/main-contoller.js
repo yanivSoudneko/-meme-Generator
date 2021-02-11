@@ -47,7 +47,6 @@ function getOutLineColor() {
 
 function onEditor(id) {
     var currImg = getImgById(id)
-        // console.log(currImg.id);
     gMeme.selectedImgId = currImg.id
     drawImgFromlocal()
     var elMemes = document.querySelector('.canvas-container')
@@ -85,6 +84,10 @@ function drawImgFromlocal() {
     }
 }
 
+// function onRemoveLine() {
+//     removeLine()
+// }
+
 function renderCanvas() {
     gCtx.fillStyle = "#ffcccc"
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
@@ -95,14 +98,12 @@ function changeLine() {
     console.log(gSelectedLine);
     if (gSelectedLine > 1) {
         gSelectedLine = 0
-        console.log('gSelectedLine', gSelectedLine);
     }
     drawImgFromlocal()
 }
 
 function onDeleteLine(id) {
     console.log(gMeme.lines[gSelectedLine].txt);
-    console.log(gSelectedLine);
     gMeme.lines[gSelectedLine].txt = ''
     drawImgFromlocal()
 }
