@@ -55,6 +55,10 @@
             cursor: pointer;
         }
         
+        img {
+            border-radius: 15px;
+        }
+        
         a {
             text-decoration: none;
             color: white;
@@ -66,7 +70,11 @@
         /* FOTTER */
         
         .about-me {
-            background-color: wheat;
+            margin-right: 280px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            column-count: 1;
         }
         
         .about-me-img {
@@ -85,6 +93,14 @@
             height: 300px;
             background-color: #e4995c;
             padding: 30px;
+        }
+        
+        .about-me {
+            margin-left: 9.375rem;
+        }
+        
+        .search-words {
+            margin-bottom: 50px;
         }
         
         .flex-position {
@@ -121,6 +137,7 @@
         .tag-title {
             text-align: center;
             background-color: rgb(206, 177, 177);
+            margin-bottom: 25px;
         }
         /*Components*/
         
@@ -205,6 +222,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             grid-gap: 10px;
+            margin-bottom: 50px;
             border-radius: 20px;
         }
         
@@ -230,9 +248,17 @@
         .canvas-controller {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
+            margin-left: 100px;
             align-items: center;
             /* padding-left: 400px; */
+        }
+        
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         .hidden {
@@ -317,6 +343,15 @@
                 margin-left: 15px;
             }
             .canvas-container {
+                flex-direction: column;
+            }
+            .flex-position {
+                display: flex;
+                flex-direction: column;
+            }
+            .about-me {
+                display: flex;
+                margin: 0;
                 flex-direction: column;
             }
         }

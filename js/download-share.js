@@ -14,12 +14,12 @@ function loadImageFromInput(ev, onImageReady) {
     reader.readAsDataURL(ev.target.files[0])
 }
 
-// on submit call to this function
+
 function uploadImg(elForm, ev) {
     ev.preventDefault();
     document.getElementById('imgData').value = gElCanvas.toDataURL("image/jpeg");
 
-    // A function to be called if request succeeds
+
     function onSuccess(uploadedImgUrl) {
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         console.log('uploadedImgUrl:', uploadedImgUrl)

@@ -1,24 +1,25 @@
 'use strict'
-var gKeywords = { crazy: 2, angry: 1, funny: 5, cute: 2 };
+var gKeywords = { politic: 3, animal: 3, kids: 3, tv: 7, sport: 1, anim: 1 };
+const KEY = 'currImg'
 var gImgs = [
-    { id: 1, url: 'img/1.jpg' },
-    { id: 2, url: 'img/2.jpg' },
-    { id: 3, url: 'img/3.jpg' },
-    { id: 4, url: 'img/4.jpg' },
-    { id: 5, url: 'img/5.jpg' },
-    { id: 6, url: 'img/6.jpg' },
-    { id: 7, url: 'img/7.jpg' },
-    { id: 8, url: 'img/8.jpg' },
-    { id: 9, url: 'img/9.jpg' },
-    { id: 10, url: 'img/10.jpg' },
-    { id: 11, url: 'img/11.jpg' },
-    { id: 12, url: 'img/12.jpg' },
-    { id: 13, url: 'img/13.jpg' },
-    { id: 14, url: 'img/14.jpg' },
-    { id: 15, url: 'img/15.jpg' },
-    { id: 16, url: 'img/16.jpg' },
-    { id: 17, url: 'img/17.jpg' },
-    { id: 18, url: 'img/18.jpg' },
+    { id: 1, url: 'img/1.jpg', keywords: ['politic'] },
+    { id: 2, url: 'img/2.jpg', keywords: ['animal'] },
+    { id: 3, url: 'img/3.jpg', keywords: ['animal'] },
+    { id: 4, url: 'img/4.jpg', keywords: ['animal'] },
+    { id: 5, url: 'img/5.jpg', keywords: ['kids'] },
+    { id: 6, url: 'img/6.jpg', keywords: ['tv'] },
+    { id: 7, url: 'img/7.jpg', keywords: ['kids'] },
+    { id: 8, url: 'img/8.jpg', keywords: ['tv'] },
+    { id: 9, url: 'img/9.jpg', keywords: ['kids'] },
+    { id: 10, url: 'img/10.jpg', keywords: ['politic'] },
+    { id: 11, url: 'img/11.jpg', keywords: ['sport'] },
+    { id: 12, url: 'img/12.jpg', keywords: ['tv'] },
+    { id: 13, url: 'img/13.jpg', keywords: ['tv'] },
+    { id: 14, url: 'img/14.jpg', keywords: ['tv'] },
+    { id: 15, url: 'img/15.jpg', keywords: ['tv'] },
+    { id: 16, url: 'img/16.jpg', keywords: ['tv'] },
+    { id: 17, url: 'img/17.jpg', keywords: ['politic'] },
+    { id: 18, url: 'img/18.jpg', keywords: ['toys'] },
 ];
 var gMeme = {
     selectedImgId: 3,
@@ -52,7 +53,12 @@ var gMeme = {
 
 
 
+console.log(gMeme.lines[1].coords[0].posX)
+console.log(gMeme.lines[1].coords[0].posY)
 
+function searchImg() {
+    renderGallery();
+}
 
 function returnImg() {
     return gImgs
@@ -62,6 +68,11 @@ function toggleMenu() {
     document.body.classList.toggle('open')
 }
 
+function getImgsForDisplay() {
+    var imgs = [];
+    imgs = filterImgs(gImgs)
+    return imgs;
+}
 
 function getMeme() {
     return gMeme
@@ -94,7 +105,6 @@ function updateMemeTxt(lnIdx, txt) {
 
 
 function getImgIdxById() {
-    console.log();
     return gImgs.findIndex((img) => gMeme.selectedImgId === img.id);
 }
 
@@ -108,4 +118,9 @@ function getImgById(imgId) {
         return imgId === img.id
     })
     return img
+}
+
+
+function saveCurrImg(img) {
+    saveToStorage(IMG_KEY, img);
 }

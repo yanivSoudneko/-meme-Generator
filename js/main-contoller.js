@@ -6,7 +6,6 @@ var gColor;
 var gLineColor;
 var gFont = 'Impact'
 var gFontSize = 40
-    // var gPos = { posX: 50, posY: 50 }
 var gCurrMeme = getMeme()
 var gSelectedLine = gMeme.selectedLineIdx
 console.log('line', gSelectedLine);
@@ -20,17 +19,17 @@ function init() {
     elMemes.classList.add('hidden')
     drawImgFromlocal()
     renderCanvas()
-    renderGallery()
+    renderGallery(gImgs)
 }
 
 
 function renderGallery() {
-    var imgs = getImgs()
-    var strHtml = imgs.map(function(img) {
-        return `
-        <img src="${img.url}" class="img-${img.id}" onclick="onEditor(${img.id})"/>`
+    var imgs = getImgsForDisplay();
+    var strHtml = ''
+    imgs.forEach(function(img) {
+        strHtml += ` <img src="${img.url}" class="img-${img.id}" onclick="onEditor(${img.id})"/>`
     })
-    document.querySelector('.grid-container').innerHTML = strHtml.join('')
+    document.querySelector('.grid-container').innerHTML = strHtml
 }
 
 
@@ -75,12 +74,7 @@ function drawImgFromlocal() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         const txt = getImgTxt();
-
-        console.log('y', gMeme.lines[gSelectedLine].coords[0].posY);
-
         addMemeText(txt, gMeme.lines[gSelectedLine].coords[0].posX, gMeme.lines[gSelectedLine].coords[0].posY)
-
-
     }
 }
 
@@ -92,7 +86,6 @@ function renderCanvas() {
 
 function changeLine() {
     gSelectedLine++
-    console.log('gSelectedLine', gSelectedLine);
     if (gSelectedLine > 1) {
         gSelectedLine = 0
     }
@@ -100,15 +93,12 @@ function changeLine() {
 }
 
 function onDeleteLine() {
-    debugger
-    console.log(gMeme.lines[gSelectedLine].txt);
     gMeme.lines[gSelectedLine].txt = ''
     drawImgFromlocal()
 }
 
 function changeFont(font) {
     gFont = font
-    console.log(gFont);
 }
 
 function biggerFont() {
@@ -120,25 +110,21 @@ function lowerFont() {
 }
 
 function moveLineDown() {
-    console.log(gMeme.lines[0].coords[0].posY);
     gMeme.lines[gSelectedLine].coords[0].posY += 10
     drawImgFromlocal()
 }
 
 function moveLineUp() {
-    console.log(gMeme.lines[0].coords[0].posY);
     gMeme.lines[gSelectedLine].coords[0].posY -= 10
     drawImgFromlocal()
 }
 
 function moveLineRight() {
-    console.log(gMeme.lines[0].coords[0].posX);
     gMeme.lines[gSelectedLine].coords[0].posX -= 10
     drawImgFromlocal()
 }
 
 function moveLineLeft() {
-    console.log(gMeme.lines[0].coords[0].posY);
     gMeme.lines[gSelectedLine].coords[0].posX += 10
     drawImgFromlocal()
 }
@@ -149,12 +135,23 @@ function alignLeft() {
 }
 
 function alignCenter() {
-    gMeme.lines[gSelectedLine].coords[0].posX = 125
+    gMeme.lines[gSelectedLine].coords[0].posX = 200
 }
 
 function alignRight() {
-    gMeme.lines[gSelectedLine].coords[0].posX = 200
+    gMeme.lines[gSelectedLine].coords[0].posX = 400
 }
+
+function filterImgs(imgs) {
+    var userSearch = document.getElementById('search').value;
+    if (userSearch === '') return imgs;
+    else return imgs.filter(function(img) {
+        return img.keywords.some(function(keyword) {
+            return keyword.substring(0, userSearch.length) === userSearch;
+        });
+    });
+}
+
 
 function addMemeText(text) {
     gCtx.lineWidth = 2

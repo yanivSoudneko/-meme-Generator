@@ -28,13 +28,18 @@
     </header>
     <div class="alt-header">
 
-        <input type="text" placeholder="Enter search keyword">
-        <div class="tag-title">
-            <span>funny</span>
-            <span>kids</span>
-            <span>anim</span>
-            <span>america</span>
-            <span>movies</span>
+        <div class="search">
+            <i class="fa fa-search"></i>
+            <input list="search-datalist" name="search-datalist" id="search" type="txt" class="search-words" oninput="searchImg()" placeholder="Type an image category...">
+            <datalist id="search-datalist">
+              <option value="animal">
+              <option value="politic">
+              <option value="tv">
+              <option value="kids">
+              <option value="sport">
+              <option value="toys">
+             
+            </datalist>
         </div>
     </div>
 
@@ -107,17 +112,23 @@
     </main>
     <div class="bottom">
 
-        <footer class="flex  ">
+        <footer class="flex">
             <div class="flex-position flex flex-column space-between">
                 <img src="img/me.jpg" class="my-image">
-                <small>All rights reserved@<span class="Yaniv"> Yaniv Soudneko</span></small>
+
+                <small>All rights reserved@</small>
+                <span class="Yaniv"> Yaniv Soudneko</span>
+            </div>
+            <div class="about-me">
+                <p>Greetings,Welcome to my portfolio. I am Yaniv Soudneko 23 years old,born and raised at Ashdod,Israel, and study to become Full stack developer</p>
+
             </div>
         </footer>
     </div>
 
 
 
-
+    <script src="js/util.js"></script>
     <script src="js/download-share.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/main-contoller.js"></script>
