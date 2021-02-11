@@ -1,5 +1,5 @@
 'use strict'
-var gKeywords = { politic: 3, animal: 3, kids: 3, tv: 7, sport: 1, anim: 1 };
+var gKeywords = { politic: 3, animal: 3, kids: 3, tv: 7, sport: 1, toys: 1 };
 const KEY = 'currImg'
 var gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['politic'] },
