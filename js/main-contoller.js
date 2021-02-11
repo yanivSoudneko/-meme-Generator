@@ -92,14 +92,15 @@ function renderCanvas() {
 
 function changeLine() {
     gSelectedLine++
-    console.log(gSelectedLine);
+    console.log('gSelectedLine', gSelectedLine);
     if (gSelectedLine > 1) {
         gSelectedLine = 0
     }
     drawImgFromlocal()
 }
 
-function onDeleteLine(id) {
+function onDeleteLine() {
+    debugger
     console.log(gMeme.lines[gSelectedLine].txt);
     gMeme.lines[gSelectedLine].txt = ''
     drawImgFromlocal()

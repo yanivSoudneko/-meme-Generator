@@ -44,30 +44,37 @@
 
         <div class="canvas-controller">
             <h2>Make your Canvas</h2>
-            <label for="meme-line-1">Top line</label>
+
+            <label for="meme-line-1"></label>
             <input type="text" name="meme-line-1" oninput="onEditMemeText(this,0)">
+            <div class="upper-btns">
+                <button><i class="fas fa-arrow-up" onclick="moveLineUp(this)" ></i></button>
+                <button><i class="fas fa-arrow-down" onclick="moveLineDown(this)"></i></button>
+                <button><i class="fas fa-arrow-right" onclick="moveLineLeft(this)"></i></button>
+                <button><i class="fas fa-arrow-left" onclick="moveLineRight(this)"></i></button>
+            </div>
+            <div class="mid-btn">
 
-            <button><i class="fas fa-arrow-up" onclick="moveLineUp(this)"></i></button>
-            <button><i class="fas fa-arrow-down" onclick="moveLineDown(this)"></i></button>
-            <button><i class="fas fa-arrow-right" onclick="moveLineLeft(this)"></i></button>
-            <button><i class="fas fa-arrow-left" onclick="moveLineRight(this)"></i></button>
-
-            <button onclick="changeLine()">Swith line</button>
-            <button>Add line</button>
-            <button onclick="onDeleteLine(this)">delete line</button>
+                <button onclick="changeLine()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" srcset="" class="icons"></button>
+                <button><img src="ICONS/add.png" alt="add-line" srcset=""class="icons"></button>
+                <img src="ICONS/trash.png" alt="Delete Line" class="icons" onclick="onDeleteLine(this)">
+            </div>
 
             <div class="edit-font">
-                <button onclick="biggerFont()">A+</button>
-                <button onclick="lowerFont()">A-</button>
-                <button onclick="alignLeft()">align left</button>
-                <button onclick="alignCenter()">align center</button>
-                <button onclick="alignRight()">align right</button>
+                <button onclick="biggerFont()"><img src="ICONS/increase font - icon.png" alt="A+" srcset="" class="icons"></button>
+                <button onclick="lowerFont()"><img src="ICONS/decrease font - icon.png" alt="A-" srcset="" class="icons"></button>
+                <button onclick="alignLeft()"><img src="ICONS/align-to-left.png" alt="Align-Left" srcset="" class="icons"></button>
+                <button onclick="alignCenter()"><img src="ICONS/center-text-alignment.png" alt="Align-Center" srcset="" class="icons"></button>
+                <button onclick="alignRight()"><img src="ICONS/align-to-right.png" alt="Align-Left" class="icons"></button>
+            </div>
+            <div class="lower-btn">
+
                 <select onchange="changeFont(this.value)" name="font" id="font">
-                    <option value="Impact">Impact</option>
-                    <option value="Arial">Arial</option>
-                    <option value="Calibri">Calibri</option>
-                    <option value="Cambria">Cambria</option>
-                </select>
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Calibri">Calibri</option>
+                        <option value="Cambria">Cambria</option>
+                    </select>
 
                 <input type="color" id="color" onchange="getColor()">
                 <input type="color" id="outLine" onchange="getOutLineColor()">
@@ -98,6 +105,18 @@
         <section class="grid-container"></section>
 
     </main>
+    <div class="bottom">
+
+        <footer class="flex  ">
+            <div class="flex-position flex flex-column space-between">
+                <img src="img/me.jpg" class="my-image">
+                <small>All rights reserved@<span class="Yaniv"> Yaniv Soudneko</span></small>
+            </div>
+        </footer>
+    </div>
+
+
+
 
     <script src="js/download-share.js"></script>
     <script src="js/meme-service.js"></script>
