@@ -6,7 +6,7 @@ var gColor;
 var gLineColor;
 var gFont = 'Impact'
 var gFontSize = 40
-var gPos = { posX: 50, posY: 50 }
+    // var gPos = { posX: 50, posY: 50 }
 var gCurrMeme = getMeme()
 var gSelectedLine = gMeme.selectedLineIdx
 console.log('line', gSelectedLine);
@@ -84,9 +84,6 @@ function drawImgFromlocal() {
     }
 }
 
-// function onRemoveLine() {
-//     removeLine()
-// }
 
 function renderCanvas() {
     gCtx.fillStyle = "#ffcccc"
@@ -151,7 +148,7 @@ function alignLeft() {
 }
 
 function alignCenter() {
-    gMeme.lines[gSelectedLine].coords[0].posX = 100
+    gMeme.lines[gSelectedLine].coords[0].posX = 125
 }
 
 function alignRight() {

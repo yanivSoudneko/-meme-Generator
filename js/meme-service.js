@@ -54,13 +54,9 @@ var gMeme = {
 
 
 
-// function removeLine() {
-//     if (gMeme.lines.length === 0) return
-//     gMeme.lines.splice([gMeme.selectedLineIdx], 1)
-//     gMeme.selectedLineIdx = 0
-//     drawImgFromlocal()
-// }
-
+function returnImg() {
+    return gImgs
+}
 
 function toggleMenu() {
     document.body.classList.toggle('open')

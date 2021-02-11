@@ -74,7 +74,21 @@
             </div>
 
             <div>
-                <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+                <div class="inputs">
+                    <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+
+                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="btn" type="submit">Publish</button>
+                        <button><a href="#" class="btn" onclick="downloadCanvas(this)" download="my-img.jpg">Download </a></button>
+
+                        <div class="share-container"></div>
+                    </form>
+
+                </div>
+
+
+
 
             </div>
         </div>
@@ -84,7 +98,8 @@
         <section class="grid-container"></section>
 
     </main>
-    <!-- <script src="js/main.js"></script> -->
+
+    <script src="js/download-share.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/main-contoller.js"></script>
 
