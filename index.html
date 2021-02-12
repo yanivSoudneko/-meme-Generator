@@ -20,14 +20,14 @@
             <div class="logo"><a href="#gallery">Meme</a></div>
             <ul class="main-nav navbar-conntainer clean-list flex">
                 <li><a href="#gallery" class=" header-a flex align-center justify-content" onclick="init()">Gallery</a></li>
-                <li><a href="#memes" class=" header-a flex align-center justify-content">Memes</a></li>
-                <li><a href="#" class=" header-a flex align-center justify-content">About</a></li>
+                <li><a href="#memes" class=" header-a flex align-center justify-content" onclick="showMemes()">Memes</a></li>
+                <li><a href="#personal" class=" header-a flex align-center justify-content">About</a></li>
             </ul>
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </header>
     <div class="alt-header">
-
+        <h2>Choose your favorite category</h2>
         <div class="search">
             <i class="fa fa-search"></i>
             <input list="search-datalist" name="search-datalist" id="search" type="txt" class="search-words" oninput="searchImg()" placeholder="Type an image category...">
@@ -94,17 +94,19 @@
                     <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                         <input name="img" id="imgData" type="hidden" />
                         <button class="btn" type="submit">Publish</button>
-                        <button><a href="#" class="btn" onclick="downloadCanvas(this)" download="my-img.jpg">Download </a></button>
-
-                        <div class="share-container"></div>
-                    </form>
-
+                        <button class="btn"><a href="#" class="btn noselect" onclick="downloadCanvas(this)" download="my-img.jpg">Download </a></button>
+                        <div id="circle"></div>
                 </div>
 
-
-
+                <div class="share-container"></div>
+                </form>
 
             </div>
+
+
+
+
+        </div>
         </div>
     </section>
     <main class="main-content main-container">
@@ -114,7 +116,7 @@
     </main>
     <div class="bottom">
 
-        <footer class="flex">
+        <footer class="flex" id="personal">
             <div class="flex-position flex flex-column space-between">
                 <img src="img/me.jpg" class="my-image">
 

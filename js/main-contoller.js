@@ -105,7 +105,10 @@ function changeLine() {
 }
 
 function onDeleteLine() {
-    gMeme.lines[gSelectedLine].txt = ''
+    for (var i = 0; i < gMeme.lines.length; i++) {
+        gSelectedLine = i
+        gMeme.lines[gSelectedLine].txt = ''
+    }
     drawImgFromlocal()
 }
 
@@ -173,6 +176,13 @@ function filterImgs(imgs) {
             return keyword.substring(0, userSearch.length) === userSearch;
         });
     });
+}
+
+function showMemes() {
+    var elMemes = document.querySelector('.canvas-container')
+    elMemes.classList.remove('hidden')
+    var elGallery = document.querySelector('.grid-container')
+    elGallery.classList.add('hidden')
 }
 
 
