@@ -36,11 +36,15 @@ function renderGallery() {
 function getColor() {
     var elColor = document.getElementById('color').value
     gColor = elColor
+    drawImgFromlocal()
+
 }
 
 function getOutLineColor() {
     var elLine = document.getElementById('outLine').value
     gLineColor = elLine
+    drawImgFromlocal()
+
 }
 
 
@@ -63,6 +67,7 @@ function getCurrImg() {
 function onEditMemeText(inputText, gSelectedLine) {
     const txt = inputText.value;
     updateMemeTxt(gSelectedLine, txt);
+    updateMemeTxt(gSelectedLine, txt);
     drawImgFromlocal();
 }
 
@@ -74,14 +79,21 @@ function drawImgFromlocal() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         const txt = getImgTxt();
-        addMemeText(txt, gMeme.lines[gSelectedLine].coords[0].posX, gMeme.lines[gSelectedLine].coords[0].posY)
+        for (var i = 0; i < gMeme.lines.length; i++) {
+            gSelectedLine = i
+            addMemeText(txt, gMeme.lines[i].coords[0].posX, gMeme.lines[i].coords[0].posY)
+        }
     }
 }
 
+function onNewLine() {
+    newLine()
+}
 
 function renderCanvas() {
     gCtx.fillStyle = "#ffcccc"
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+
 }
 
 function changeLine() {
@@ -99,14 +111,20 @@ function onDeleteLine() {
 
 function changeFont(font) {
     gFont = font
+    drawImgFromlocal()
+
 }
 
 function biggerFont() {
     gFontSize += 5
+    drawImgFromlocal()
+
 }
 
 function lowerFont() {
     gFontSize -= 5
+    drawImgFromlocal()
+
 }
 
 function moveLineDown() {
@@ -132,14 +150,19 @@ function moveLineLeft() {
 
 function alignLeft() {
     gMeme.lines[gSelectedLine].coords[0].posX = 50
+    drawImgFromlocal()
+
 }
 
 function alignCenter() {
     gMeme.lines[gSelectedLine].coords[0].posX = 200
+    drawImgFromlocal()
+
 }
 
 function alignRight() {
     gMeme.lines[gSelectedLine].coords[0].posX = 400
+    drawImgFromlocal()
 }
 
 function filterImgs(imgs) {
@@ -153,14 +176,27 @@ function filterImgs(imgs) {
 }
 
 
-function addMemeText(text) {
+
+function addMemeText(selected = 0) {
+    var text = gMeme.lines[gSelectedLine].txt;
+    var x = gMeme.lines[gSelectedLine].coords[0].posX;
+    var y = gMeme.lines[gSelectedLine].coords[0].posY;
+    gCtx.beginPath()
     gCtx.lineWidth = 2
     gCtx.strokeStyle = gLineColor
     gCtx.fillStyle = gColor
     gCtx.font = gFontSize + 'px ' + gFont
     gCtx.textAlign = 'center'
-    gCtx.fillText(text, gMeme.lines[gSelectedLine].coords[0].posX, gMeme.lines[gSelectedLine].coords[0].posY)
-    gCtx.strokeText(text, gMeme.lines[gSelectedLine].coords[0].posX, gMeme.lines[gSelectedLine].coords[0].posY)
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+
+
+
+    gCtx.strokeStyle = selected ? 'green' : 'black'
+    var lineHeight = gFontSize * 1.25
+    var textWidth = gCtx.measureText(text).width;
+    gCtx.strokeRect(gMeme.lines[gSelectedLine].coords[0].posX - textWidth / 2 - 10, gMeme.lines[gSelectedLine].coords[0].posY - lineHeight + 10, textWidth + 20, lineHeight);
+
 }
 
 

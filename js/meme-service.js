@@ -1,5 +1,6 @@
 'use strict'
 var gKeywords = { politic: 3, animal: 3, kids: 3, tv: 7, sport: 1, toys: 1 };
+
 const KEY = 'currImg'
 var gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['politic'] },
@@ -25,10 +26,11 @@ var gMeme = {
     selectedImgId: 3,
     selectedLineIdx: 0,
     lines: [{
-            txt: '',
-            size: '20',
+            txt: 'line 1',
+            size: 20,
             align: 'center',
             color: 'blue',
+            isDragging: false,
             coords: [{
                 line: '',
                 order: 0,
@@ -37,10 +39,11 @@ var gMeme = {
             }]
         },
         {
-            txt: '',
-            size: '30',
+            txt: 'line 2',
+            size: 40,
             align: 'center',
             color: 'blue',
+            isDragging: false,
             coords: [{
                 line: '',
                 order: 1,
@@ -51,10 +54,8 @@ var gMeme = {
     ],
 };
 
+console.log(gMeme.lines.length);
 
-
-console.log(gMeme.lines[1].coords[0].posX)
-console.log(gMeme.lines[1].coords[0].posY)
 
 function searchImg() {
     renderGallery();
@@ -95,7 +96,8 @@ function getImgSrc() {
 
 function getImgTxt() {
     const idx = getImgIdxById();
-    return gMeme.lines[0].txt;
+    gMeme.lines[gSelectedLine].txt;
+    drawImgFromlocal()
 }
 
 function updateMemeTxt(lnIdx, txt) {
