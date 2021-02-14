@@ -50,10 +50,8 @@
         <div class="canvas-controller">
             <h2>Make your Canvas</h2>
 
-            <label for="meme-line-1">Line 1:</label>
+            <label for="meme-line-1"></label>
             <input type="text" name="meme-line-1" oninput="onEditMemeText(this,0)">
-            <label for="meme-line-2">Line 2:</label>
-            <input type="text" name="meme-line-2" oninput="onEditMemeText(this,1)">
             <div class="upper-btns">
                 <button><i class="fas fa-arrow-up" onclick="moveLineUp(this)" ></i></button>
                 <button><i class="fas fa-arrow-down" onclick="moveLineDown(this)"></i></button>
@@ -64,7 +62,7 @@
 
                 <button onclick="changeLine()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" srcset="" class="icons"></button>
                 <button onclick="onNewLine()"><img src="ICONS/add.png" alt="add-line" srcset=""class="icons"></button>
-                <img src="ICONS/trash.png" alt="Delete Line" class="icons" onclick="onDeleteLine(this)">
+                <button><img src="ICONS/trash.png" alt="Delete Line" class="icons" onclick="onDeleteLine(this)"></button>
             </div>
 
             <div class="edit-font">
@@ -94,8 +92,9 @@
                     <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                         <input name="img" id="imgData" type="hidden" />
                         <button class="btn" type="submit">Publish</button>
-                        <button class="btn"><a href="#" class="btn noselect" onclick="downloadCanvas(this)" download="my-img.jpg">Download </a></button>
+                        <button><a href="#"  onclick="downloadCanvas(this)"class="btn noselect down" download="my-img.jpg">Download </a></button>
                         <div id="circle"></div>
+                        <button class="saveOnLocal" onclick="saveImage()">Save</button>
                 </div>
 
                 <div class="share-container"></div>
